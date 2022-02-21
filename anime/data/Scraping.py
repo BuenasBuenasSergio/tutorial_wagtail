@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import jovian
 
+#En caso de que pida API KEY de jovian:
+#eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY0NDkxNzc0MSwianRpIjoiY2QxNjBjNTYtN2MxYy00Mzg5LWE4ZDgtN2I5OGQ5MjZhNzA5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5Ijp7ImlkIjoxNTc3MjUsInVzZXJuYW1lIjoiYnVlbmFzYnVlbmFzc2VyZ2lvIn0sIm5iZiI6MTY0NDkxNzc0MSwiZXhwIjoxNjQ4ODA1NzQxfQ.iu-pnAmmr3IOEN6UNHtXkZh1Vcs4bke1xrHbhEkQBQU
 
 site_url = 'https://myanimelist.net'
 
@@ -47,7 +49,7 @@ for x in range(0,1000,50):
             result.append(r)
         return result
 
-
+    #extrayendo datos leyendo por filas donde se encuentran
     for row in row_content:
         episode = parse_episodes(row.find('div', class_ = "information di-ib mt4").text.strip().split('\n'))
         ranking = {
@@ -66,19 +68,19 @@ for x in range(0,1000,50):
             r = i.strip()
             result.append(r)
         return result
-
+    #Guardando datos en un CSV
     def write_csv(items, path):
-        # Open the file in write mode
+        # Importante abrir archivo con decodificacion UTF-8 si no da fallo en los simblos de los nombres
         with open(path, 'w', encoding='utf-8') as f:
             # Return if there's nothing to write
             if len(items) == 0:
                 return
             
-            # Write the headers in the first line
+            # Escriiendo el encabezado de la tabla
             headers = list(items[0].keys())
             f.write(','.join(headers) + '\n')
             
-            # Write one item per line
+            # Guardando los registros
             for item in items:
                 values = []
                 for header in headers:

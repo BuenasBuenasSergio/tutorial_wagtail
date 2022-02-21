@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'blog',
     'pelis',
+    'anime',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    'pandas',
+    'jovian',
 
     'django.contrib.admin',
     'django.contrib.auth',
