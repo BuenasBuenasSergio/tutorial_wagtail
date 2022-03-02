@@ -15,7 +15,7 @@ len(response.text)
 doc = BeautifulSoup(response.text)
 type(doc)
 
-jovian.commit(project="my-anime-list-webscraping")
+
 
 #top_anime_url = site_url + '/topanime.php'
 # top_anime_url = site_url + '/topanime.php?limit={x}'
@@ -38,8 +38,6 @@ for x in range(0,1000,50):
 
     row_content = doc.find_all('tr', {'class' : "ranking-list"})
     len(row_content)
-
-
     
     #consiguiendo listado de episodios
     def parse_episodes(listt):
@@ -54,11 +52,12 @@ for x in range(0,1000,50):
         episode = parse_episodes(row.find('div', class_ = "information di-ib mt4").text.strip().split('\n'))
         ranking = {
             'Rank' : row.find('td', class_ = "rank ac").find('span').text,
-            'Title': row.find('div', class_="di-ib clearfix").find('a').text,
+            'Title': row.find('div', class_="di-ib clearfix").find('a').text.replace(',', ' '),
             'Rating': row.find('td', class_="score ac fs14").find('span').text,
             'Image_URL': row.find('td', class_ ='title al va-t word-break').find('img')['data-src'],
             'Episodes': episode[0],
-            'Dates': episode[1]
+            'Dates': episode[1],
+            'URL' : row.find('div', class_="di-ib clearfix").find('a')['href'],
         }
         top_anime.append(ranking)
 

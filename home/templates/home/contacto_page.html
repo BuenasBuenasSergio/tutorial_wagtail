@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+{% block content %}
+<div class="container">
+    <!-- Navbar -->
+    <div class="form-row mt-5">
+        <div class="form-group col-10 offset-1">
+            <form>
+                <div class="card" id="registro">
+                    <h5 class="card-header bg-dark text-white">Nueva Cancion</h5>
+                    <div class="card-body">
+
+                        <div class="row ">
+                            <div class=" col-5">
+                                <label for="name">Nombre</label>
+                                <input type="text" name="name" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class=" col-7">
+                                <label for="surname">Apellidos</label>
+                                <input type="text" name="surname" class="form-control" placeholder="Apellidos">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="age">Edad</label>
+                                <input type="text" name="edad" class="form-control" placeholder="Edad">
+                            </div>
+                            <div class="col-4">
+                                <label for="fecnac">Fecha nacimiento</label>
+                                <input type="date" name="fecnac" class="form-control">
+                            </div>
+                            <div class="col-4">
+                                <label for="dni">DNI/NIF</label>
+                                <input class='form-control' type="text" name="dni" placeholder="DNI/NIF" id='dni'>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="tlf">Num Telefono</label>
+                                <input type="number" name="tlf" class="form-control" placeholder="Telefono">
+                            </div>
+                            <div class="col-6">
+                                <label for="movil">Movil</label>
+                                <input type="number" name="movil" class="form-control" placeholder="Movil">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class=" col-8">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class=" col-4">
+                                <label for="pass">Contraseña</label>
+                                <input type="password" name="pass" class="form-control" placeholder="Contraseña">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class=" col-8">
+                                <label for="direccion">Direccion</label>
+                                <input type="text" name="direccion" class="form-control" placeholder="Direccion">
+                            </div>
+                            <div class=" col-2">
+                                <label for="numero">Numero</label>
+                                <input type="number" name="numero" class="form-control" placeholder="Numero">
+                            </div>
+                            <div class=" col-2">
+                                <label for="piso">Piso</label>
+                                <input type="text" name="piso" class="form-control" placeholder="Piso">
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class=" col-8">
+                                <label for="fom">Selecciona Curso</label>
+                                <select name="fom" class="form-control">
+                                    <option value="" selected hidden>Selecciona una Formacion</option>
+                                    <option value="">Automocion</option>
+                                    <option value="">Electronica</option>
+                                    <option value="">Sistemas Informaticos</option>
+                                    <option value="">Cocina</option>
+                                    <option value="">Enfermeria</option>
+                                </select>
+                            </div>
+                            <div class=" col-2">
+                                <label for="curso">Curso</label>
+                                <select name="curso" class="form-control">
+                                    <option value="" selected hidden>Selecciona un Curso</option>
+                                    <option value="">1º</option>
+                                    <option value="">2º</option>
+                                </select>
+                            </div>
+                            <div class="form-check col-2">
+                                <br>
+                                <input class="form-check-input" type="checkbox" name="beca" id="beca">
+                                <label class="form-check-label" for="beca">
+                                    Beca
+                                </label>
+                            </div>
+                                
+                            <div class="col-12" id="doc" style="display: none">
+                                <label for="formFile" class="form-label">Elige documento Beca</label>
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row ">
+                            <div class="col-12" style="text-align:center">
+                                <input class="btn bg-dark text-white" style=" font-weight: bold;cursor:pointer" type="submit" value="Guardar">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row ">
+                            <p>¿Estas registrado? <span id="ini" onclick="cambioForm()">Inicia sesion</span></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </form>
+
+{% endblock content %}
