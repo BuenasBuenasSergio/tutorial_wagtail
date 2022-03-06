@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blog',
     'pelis',
     'anime',
+    'noticias',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'taggit',
     'pandas',
     'jovian',
+    'wagtailfontawesome',
+    'wagtail_blocks',
 
     'django.contrib.admin',
     'django.contrib.auth',

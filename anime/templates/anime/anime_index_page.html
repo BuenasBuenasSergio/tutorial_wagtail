@@ -12,21 +12,23 @@
 <hr>
     <ul class="list-group">
     {% for anime in animes %}
-    <li class="list-group-item">{{anime.title}}</li>
+    <a href='{{anime.link}}'><li class="list-group-item">{{anime.title}}
+        <br><img src="{{anime.imagen}}" alt="" >
+    </li></a>
     
     {% empty %}
     <p>No hay posts todavía ... </p>
     {% endfor %}
 </ul>
 
-<!-- {% if peliculas.paginator.count > 1 %}
+{% if animes.paginator.count > 1 %}
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                {% include "includes/pagination.html" with subpages=peliculas %}
+                {% include "includes/pagination.html" with subpages=animes %}
                 </div>
             </div>
         </div>
-    {% endif %} -->
+    {% endif %}
 </div>
 {% endblock %}
