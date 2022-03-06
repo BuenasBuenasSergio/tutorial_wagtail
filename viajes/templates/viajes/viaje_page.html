@@ -1,0 +1,6 @@
+{% for map_block in page.stream_field %}
+<hr />
+{{ map_block.value }}
+<p>Latitude: {{ map_block.value.lat}}</p>
+<p>Longitude: {{ map_block.value.lng }}</p>
+{% endfor %}
