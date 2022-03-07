@@ -8,6 +8,7 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 from home.models import ContactoPage
+from anime.models import Anime, AnimeIndexPage
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -34,6 +35,9 @@ urlpatterns = urlpatterns + [
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
     path("", include(wagtail_urls)),
+    path('contacto', ContactoPage, name='contacto'),
+    path('animes', AnimeIndexPage, name='animes'),
+    path('noticias', ContactoPage, name='noticias'),
     path('contacto', ContactoPage, name='contacto'),
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:

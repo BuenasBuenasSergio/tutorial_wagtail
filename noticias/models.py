@@ -13,7 +13,7 @@ from wagtail.snippets.models import register_snippet
 
 
   
-class NoticiasIndexPage(Page):
+class ViajeIndexPage(Page):
     introduccion = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
