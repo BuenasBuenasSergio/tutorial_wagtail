@@ -5,10 +5,12 @@ from django.contrib import admin
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
+from noticias.models import NoticiasIndexPage
 
 from search import views as search_views
-from home.models import ContactoPage
+from home.models import ContactoPage, HomePage
 from anime.models import Anime, AnimeIndexPage
+from viajes.models import ViajeIndexPage
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -37,8 +39,9 @@ urlpatterns = urlpatterns + [
     path("", include(wagtail_urls)),
     path('contacto', ContactoPage, name='contacto'),
     path('animes', AnimeIndexPage, name='animes'),
-    path('noticias', ContactoPage, name='noticias'),
-    path('contacto', ContactoPage, name='contacto'),
+    path('noticias', NoticiasIndexPage, name='noticias'),
+    path('viajes', ViajeIndexPage, name='viajes'),
+    path('', HomePage, name='home'),
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    path("pages/", include(wagtail_urls)),

@@ -6,12 +6,20 @@ from modelcluster.fields import ParentalKey
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField
 
-class NoticiasIndexPage(Page):
+class ViajeIndexPage(Page):
     introduccion = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('introduccion', classname="full")
     ]
+
+    def get_context(self, request):
+        # Update context to include only published posts, ordered by reverse-chron
+        context = super().get_context(request)
+        blogpages = self.get_children().live().order_by('-first_published_at')[:5]
+        context['blogpages'] = blogpages
+        
+        return context
 
 
 class ViajePage(Page):

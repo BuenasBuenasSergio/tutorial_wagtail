@@ -28,7 +28,7 @@
     <body class="{% block body_class %}{% endblock %}">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="">Robustiano Music</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Proyecto Wagtail</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -40,10 +40,10 @@
                             <a class="nav-link active" href="{% url 'contacto' %}/">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Viajes</a>
+                            <a class="nav-link active" href="{% url 'viajes' %}/">Viajes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Noticias</a>
+                            <a class="nav-link active" href="{% url 'noticias' %}/">Noticias</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url 'animes' %}/">Scrapping</a>

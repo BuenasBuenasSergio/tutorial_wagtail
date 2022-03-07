@@ -59,7 +59,7 @@ class AnimeIndexPage(Page):
 
         context = super().get_context(request)
         qs = ''
-        animes = Anime.objects.all().order_by('-rating')
+        animes = Anime.objects.all().order_by('-rating')[:400]
 
         context['animes'] = self.paginate(request, animes)
         context['qs'] = qs
