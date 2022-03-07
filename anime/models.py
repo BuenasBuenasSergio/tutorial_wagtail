@@ -11,7 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class Anime(models.Model):
     ranking = models.IntegerField("Ranking", blank=True)
     title = models.CharField('título', max_length=250, blank=True)
-    rating = models.DecimalField("Puntuacion",max_digits=6, decimal_places=4, blank=True)
+    rating = models.DecimalField("Puntuacion",max_digits=6, decimal_places=2, blank=True)
     imagen = models.URLField(max_length=250, blank=True)
     link = models.URLField()
     episodes = models.CharField("Episodios", max_length=250, blank=True)
@@ -46,7 +46,7 @@ class AnimeIndexPage(Page):
     def paginate(self, request, animes, *args):
             page = request.GET.get('page')
             
-            paginator = Paginator(animes, 15)
+            paginator = Paginator(animes, 16)
             try:
                 pages = paginator.page(page)
             except PageNotAnInteger:

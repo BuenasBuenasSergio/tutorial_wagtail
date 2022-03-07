@@ -3,7 +3,36 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-
+<style>
+    .saludo {
+  margin-top: 15%;
+  margin-left: 24%;
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 24ch;
+  font-weight: bold;
+  font-size: 60px;
+  animation: typing 2s steps(24), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+@media screen and (max-width: 830px) {
+  .saludo {
+    font-size: 30px;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+</style>
     {% image self.banner_image fill-900x400 as img %}
 
     <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: contain; color: #fff !important">
@@ -13,4 +42,8 @@
             <a class="btn btn-primary btn-lg" href="{% url 'animes' %}/" role="button">Ir</a>
         {% endif %}
     </div>
+
+    <span class="saludo">¡Bienvenido a la Pagina!</span>
+
+
 {% endblock %}
