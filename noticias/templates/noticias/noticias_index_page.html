@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-noticiasindexpage{% endblock %}
 
@@ -17,6 +18,7 @@
         Quito el body para que no salga
         en índice
         {% endcomment %}
+        <img src="{{ post.main_image }}">
     {% empty %}
     <p>No hay posts todavía ... </p>
     {% endfor %}

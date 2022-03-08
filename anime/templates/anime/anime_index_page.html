@@ -18,7 +18,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">Puesto Nº{: {anime.ranking}}</h5>
+                    <h5 class="card-title">Puesto Nº: {{anime.ranking}}</h5>
                   <h5 class="card-title"><a href='{{anime.link}}'>{{anime.title}}</a></h5>
                 <p class="card-text"><Strong>Episidios: </Strong>{{anime.episodes}}</p>
                 <p class="card-text"><Strong>Emision: </Strong>{{anime.emmision}}</p>
@@ -33,20 +33,8 @@
           </div>
         {% endfor %}
     </div>
-
-    <!-- <ul class="list-group">
-    {% for anime in animes %}
-    <a href='{{anime.link}}'><li class="list-group-item">{{anime.title}}
-        <br><img src="{{anime.imagen}}" alt="" >
-    </li></a>
-    
-    {% empty %}
-    <p>No hay posts todavía ... </p>
-    {% endfor %}
-</ul> -->
-
 {% if animes.paginator.count > 1 %}
-        <div class="container">
+        <div class="container" style="height:100px">
             <div class="row">
                 <div class="col-md-12">
                 {% include "includes/pagination.html" with subpages=animes %}

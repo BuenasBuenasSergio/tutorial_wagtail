@@ -21,7 +21,6 @@ class NoticiasIndexPage(Page):
     ]
 
     def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
         context = super().get_context(request)
         blogpages = self.get_children().live().order_by('-first_published_at')[:5]
         context['blogpages'] = blogpages
@@ -44,6 +43,14 @@ class NoticiasPage(Page):
         InlinePanel('gallery_images', 
             label="Galería de imágenes"),
     ]
+
+    @property
+    def main_image(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
 
 class NoticiasPageGalleryImage(Orderable):
     page = ParentalKey(NoticiasPage, 
