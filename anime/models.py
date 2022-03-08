@@ -29,7 +29,7 @@ class Anime(models.Model):
 
     ]
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.ranking} {self.title} {self.rating}'
     
     class Meta:
         verbose_name = 'Anime'

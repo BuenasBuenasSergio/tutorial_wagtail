@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, ModelAdminGroup, modeladmin_register)
 
@@ -24,19 +25,12 @@ class AnimesAdmin(ModelAdmin):
     # rather than under the default Snippets section.
     model = Anime
     search_fields = ('ranking', 'title', 'episodes')
-    menu_icon = 'fa-television'  # change as required  # will put in 3rd place (000 being 1st, 100 2nd)
+    ordering = ('ranking',)
+    menu_icon = 'fa-television'
 
 
-
-class AnimesAdminGroup(ModelAdminGroup):
-    # These stub classes allow us to put various models into the custom "Wagtail Bakery" menu item
-    # rather than under the default Snippets section.
-    menu_label = 'Animes'
-    menu_icon = 'fa-television'  # change as required
-    menu_order = 200  # will put in 3rd place (000 being 1st, 100 2nd)
-    items = (AnimesAdmin,)
 
 
 # When using a ModelAdminGroup class to group several ModelAdmin classes together,
 # you only need to register the ModelAdminGroup class with Wagtail:
-modeladmin_register(AnimesAdminGroup)
+modeladmin_register(AnimesAdmin)
