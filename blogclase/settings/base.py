@@ -46,13 +46,9 @@ INSTALLED_APPS = [
     'wagtailfontawesome',
     
     
-
     'modelcluster',
     'taggit',
     'pandas',
-    'jovian',
-    'wagtailgeowidget',
-    'wagtailleafletwidget',
 
 
     'django.contrib.admin',
@@ -183,9 +179,6 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
-
-
-GOOGLE_MAPS_V3_APIKEY = "AIzaSyCxZHsgnKC45xnsvssO6cky6BGHHzxgQUo"
 
 LEAFLET_WIDGET_ZOOM:7 
 LEAFLET_SCROLL_WHEEL_ZOOM_ENABLED: True
