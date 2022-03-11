@@ -44,6 +44,9 @@ class HomePage(Page):
         verbose_name = "Home Page"
         verbose_name_plural = "Home Pages"
 
+    
+    subpage_types = ['noticias.NoticiasIndexPage', 'anime.AnimeIndexPage','blog.BlogIndexPage','pelis.PelisIndexPage', 'viajes.ViajeIndexPage', 'home.ContactoPage' ]
+
 
 
 class ContactoPage(Page):
@@ -53,3 +56,5 @@ class ContactoPage(Page):
         FieldPanel('body', classname="full"),
 
     ]
+    parent_page_types = ['home.HomePage']
+    subpage_types = [ ]

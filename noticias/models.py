@@ -27,6 +27,9 @@ class NoticiasIndexPage(Page):
         
         return context
     
+    parent_page_types = ['home.HomePage']
+    subpage_types = ['noticias.NoticiasPage']
+    
 class NoticiasPage(Page):
     date = models.DateField("Fecha Post")
     intro = models.CharField("Introducción", max_length=250)
@@ -44,13 +47,8 @@ class NoticiasPage(Page):
             label="Galería de imágenes"),
     ]
 
-    @property
-    def main_image(self):
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
+    parent_page_types = ['noticias.NoticiasIndexPage']
+    subpage_types = []
 
 class NoticiasPageGalleryImage(Orderable):
     page = ParentalKey(NoticiasPage, 

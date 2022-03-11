@@ -95,6 +95,9 @@ class PelisIndexPage(Page):
         
         return context
 
+    parent_page_types = ['home.HomePage']
+    subpage_types = []
+
 
 
     

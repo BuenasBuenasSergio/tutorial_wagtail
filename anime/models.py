@@ -65,3 +65,6 @@ class AnimeIndexPage(Page):
         context['qs'] = qs
         
         return context
+    
+    parent_page_types = ['home.HomePage']
+    subpage_types = []

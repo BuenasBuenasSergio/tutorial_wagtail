@@ -29,6 +29,9 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
         
         return context
+    
+    parent_page_types = ['home.HomePage']
+    subpage_types = ['blog.BlogPage']
 
 class BlogTagIndexPage(Page):
     def get_context(self, request):
@@ -41,6 +44,9 @@ class BlogTagIndexPage(Page):
         context = super().get_context(request)
         context['blogpages'] = blogpages
         return context
+        
+    parent_page_types = ['blog.BlogIndexPage']
+    subpage_types = []
 
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey(
@@ -76,6 +82,9 @@ class BlogPage(Page):
         InlinePanel('gallery_images', 
             label="Galería de imágenes"),
     ]
+
+    parent_page_types = ['blog.BlogIndexPage']
+    subpage_types = []
 
 class BlogPageGalleryImage(Orderable):
     page = ParentalKey(BlogPage, 

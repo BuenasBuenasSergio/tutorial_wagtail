@@ -21,6 +21,9 @@ class ViajeIndexPage(Page):
         
         return context
 
+    parent_page_types = ['home.HomePage']
+    subpage_types = ['viajes.ViajePage']
+
 
 class ViajePage(Page):
     # location = models.CharField(max_length=250, blank=True, null=True)
@@ -35,6 +38,8 @@ class ViajePage(Page):
         InlinePanel('gallery_images', 
             label="Galería de imágenes"),
     ]
+    parent_page_types = ['viajes.ViajeIndexPage']
+    subpage_types = []
 
 class NoticiasPageGalleryImage(Orderable):
     page = ParentalKey(ViajePage, 
