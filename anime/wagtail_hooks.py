@@ -24,11 +24,10 @@ class AnimesAdmin(ModelAdmin):
     # These stub classes allow us to put various models into the custom "Wagtail Bakery" menu item
     # rather than under the default Snippets section.
     model = Anime
+    list_display =('ranking', 'title', 'rating', 'episodes', 'emmision')
     search_fields = ('ranking', 'title', 'episodes')
     ordering = ('ranking',)
     menu_icon = 'fa-television'
-
-
 
 
 # When using a ModelAdminGroup class to group several ModelAdmin classes together,
