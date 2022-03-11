@@ -31,25 +31,40 @@ Creación de un tipo de páginas para la sección (index y de detalle)
 Estas páginas podrán colgar de la principal (sólo el index)
 
 ## Instalacion
-Descarga de Proyecto:
-$git clone
+* Descarga de Proyecto:
+```
+git clone
+```
 
+* Creacion de entorno
+```
+python -m venv env
+```
 
-Creacion de entorno
-$python -m venv env
+* Arranque entorno
+```
+source env/Script/activate
+```
 
-Arranque entorno
-$source env/Script/activate
+* Intalacion de proyecto
+```
+pip install -r requirements.txt
+```
 
-Intalacion de proyecto
-$pip install -r requirements.txt
-
-Arranque del Proyecto
-$python manage.py runserver
+* Arranque del Proyecto
+ ```
+python manage.py runserver
+```
 
 ## Acceso
-Navegador: localhost:8000
-Consola Admin: localhost:8000/admin
-Usuario admin:alumno
-Pass admin:alumno
+* Navegador: 
+ ```
+localhost:8000
+```
+* Consola Admin:
+ ```
+localhost:8000/admin
+```
+* Usuario admin:alumno
+* Pass admin:alumno
 
